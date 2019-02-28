@@ -19,7 +19,7 @@ my:ModuleShape
 	sh:property [                 
 		sh:path my:modid ; 
 		sh:minCount 8 ;
-		sh:minCount 8 ;
+		sh:maxCount 8 ;
 		sh:pattern "^[0-9][0-9]$" ;
 
 	]  .

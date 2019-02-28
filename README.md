@@ -34,11 +34,30 @@ cd rdfunit-shacl-ws
 tomcat7:deploy
 ```
 ## NOTE
-The war is also deployed at:
-* http://databus.dbpedia.org:8080/shacl/validate?d=https://raw.githubusercontent.com/kurzum/shacldemo/master/test.ttl&A&s=https://raw.githubusercontent.com/kurzum/shacldemo/master/test-case1.ttl
+The war is also deployed for webid at 
+
 * http://databus.dbpedia.org:8080/shacl/validate?d=http://kurzum.net/webid.ttl&A&s=https://raw.githubusercontent.com/dbpedia/webid/master/voc/webid-shacl.ttl
 
+## KNOWN ISSUES
 
+* parameter `s` is not working
+
+* Test Case URLs have to be entered hard coded into the:
+
+`nano src/main/java/org/aksw/rdfunit/validate/ws/ShaclWS.java`
+
+```
+ .addSchemaURI("none", "https://raw.githubusercontent.com/kurzum/shacldemo/master/test-case1.ttl").build();
+```
+
+then recompile and redeploy
+
+```
+mvn clean install -DskipTests=true
+cd rdfunit-shacl-ws
+tomcat7:deploy
+
+```
 
 ## Use
 
@@ -48,18 +67,14 @@ http://localhost:8080/shacl/validate
 
 * in browser:
 
-http://localhost:8080/shacl/validate?d=http://kurzum.net/webid.ttl&A&s=https://raw.githubusercontent.com/dbpedia/webid/master/voc/webid-shacl.ttl
+http://localhost:8080/shacl/validate?d=https://raw.githubusercontent.com/kurzum/shacldemo/master/test.ttl
 
-or curl
 
-```
-curl --data-urlencode d="http://kurzum.net/webid.ttl" --data-urlencode s="https://raw.githubusercontent.com/dbpedia/webid/master/voc/webid-shacl.ttl"  "http://localhost:8080/shacl/validate"
-```
 
 or with local file and shacl:
 ```
 
-curl --data-urlencode d="https://raw.githubusercontent.com/kurzum/shacldemo/master/test.ttl" --data-urlencode s="https://raw.githubusercontent.com/kurzum/shacldemo/master/test-case1.ttl"  "http://localhost:8080/shacl/validate"
+curl --data-urlencode d="https://raw.githubusercontent.com/kurzum/shacldemo/master/test.ttl"   "http://localhost:8080/shacl/validate"
 ```
 
 
