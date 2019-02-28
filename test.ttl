@@ -1,0 +1,12 @@
+
+
+@prefix my: <http://www.whatever.org/> .
+
+<correct> a my:Module ;
+	my:serialnumber "05-093" ;
+	my:modid "01" .
+
+<incorrect> a my:Module ;
+	my:serialnumber "05093" ;
+	my:modid "01A" .
+
