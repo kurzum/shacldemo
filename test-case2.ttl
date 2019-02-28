@@ -1,0 +1,27 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix cert: <http://www.w3.org/ns/auth/cert#> .
+@prefix my: <http://www.whatever.org/> .
+
+my:ModuleShape 
+	a sh:NodeShape ;
+	sh:targetClass my:Module ;  
+	sh:property [                 
+		sh:path my:serialnumber ; 
+		sh:minCount 1 ;
+		sh:maxCount 1 ;
+		sh:pattern "^[0-9]+-[0-9]+$" ;
+	]  ;
+	sh:property [                 
+		sh:path my:modid ; 
+		sh:minCount 8 ;
+		sh:minCount 8 ;
+		sh:pattern "^[0-9][0-9]$" ;
+
+	]  .
+
+
