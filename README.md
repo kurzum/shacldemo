@@ -34,7 +34,10 @@ cd rdfunit-shacl-ws
 tomcat7:deploy
 ```
 ## NOTE
-The war is also deployed at http://databus.dbpedia.org:8080/shacl/validate?d=http://kurzum.net/webid.ttl&A&s=https://raw.githubusercontent.com/dbpedia/webid/master/voc/webid-shacl.ttl
+The war is also deployed at:
+* http://databus.dbpedia.org:8080/shacl/validate?d=https://raw.githubusercontent.com/kurzum/shacldemo/master/test.ttl&A&s=https://raw.githubusercontent.com/kurzum/shacldemo/master/test-case1.ttl
+* http://databus.dbpedia.org:8080/shacl/validate?d=http://kurzum.net/webid.ttl&A&s=https://raw.githubusercontent.com/dbpedia/webid/master/voc/webid-shacl.ttl
+
 
 
 ## Use
@@ -53,7 +56,11 @@ or curl
 curl --data-urlencode d="http://kurzum.net/webid.ttl" --data-urlencode s="https://raw.githubusercontent.com/dbpedia/webid/master/voc/webid-shacl.ttl"  "http://localhost:8080/shacl/validate"
 ```
 
-or with local file and online shacl:
+or with local file and shacl:
+```
+
+curl --data-urlencode d="https://raw.githubusercontent.com/kurzum/shacldemo/master/test.ttl" --data-urlencode s="https://raw.githubusercontent.com/kurzum/shacldemo/master/test-case1.ttl"  "http://localhost:8080/shacl/validate"
+```
 
 
 
